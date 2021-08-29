@@ -32,13 +32,16 @@ class Herald_iOS_UITests: XCTestCase {
     let app = XCUIApplication()
     app.launch()
 
-    let text = try XCTUnwrap(app.textFields.firstMatch.value as? String)
+    let urlTextField = app.textFields.firstMatch
+    let subscribeButton = app.buttons.firstMatch
+
+    let text = try XCTUnwrap(urlTextField.value as? String)
     XCTAssertEqual(text, "")
-    XCTAssertFalse(app.buttons.firstMatch.isEnabled)
+    XCTAssertFalse(subscribeButton.isEnabled)
 
-    app.textFields.firstMatch.tap()
-    app.textFields.firstMatch.typeText("не сайт")
+    urlTextField.tap()
+    urlTextField.typeText("не сайт")
 
-    XCTAssertFalse(app.buttons["Subscribe"].isEnabled)
+    XCTAssertFalse(subscribeButton.isEnabled)
   }
 }
