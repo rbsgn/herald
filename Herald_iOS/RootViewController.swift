@@ -2,17 +2,40 @@ import UIKit
 
 
 class RootViewController: UIViewController {
+
+  private weak var subscribeButton: UIControl?
+
   override func loadView() {
     let view = UIView(frame: .zero)
     view.backgroundColor = .systemOrange
 
     let textField = makeTextField()
     layout(textField, in: view)
+    textField.addTarget(
+      self,
+      action: #selector(textFieldDidChange(_:)),
+      for: .editingChanged
+    )
 
     let button = makeAddFeedButton()
     layout(button, below: textField, in: view)
 
+    self.subscribeButton = button
     self.view = view
+  }
+
+  @objc private func textFieldDidChange(_ sender: UITextField) {
+    updateSubscribeStatus(userInput: sender.text)
+  }
+
+  private func updateSubscribeStatus(userInput: String?) {
+    if let userInput = userInput {
+      let possiblyURL = URL(string: userInput)
+      subscribeButton?.isEnabled = possiblyURL != nil
+    }
+    else {
+      subscribeButton?.isEnabled = false
+    }
   }
 }
 

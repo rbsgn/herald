@@ -28,31 +28,13 @@ class Herald_iOS_UITests: XCTestCase {
 
   }
 
-  /// Тестом считается метод экземпляра класса, начинающийся с `test`. В нём и происходит
-  /// тестирование субъекта.
-  func testExample() throws {
-    /// UI-тесты должны запускать приложение перед тем, как начать работу.
-    /// `XCTUIApplication` — это корневой элемент дерева элементов интерфейса, с которым
-    /// происходит взаимодействие в тесте (как <html> у веб-страницы). Вообще, весь интерфейс
-    /// приложения описывается деревом `XCUIElement`-ов, с которыми можно
-    /// взаимодействовать:
-    ///   * нажимать
-    ///   * ожидать появления
-    ///   * свайпать
-    ///   * проверять существование
-    ///   * вводить текст
-    ///   * обращаться к детям
-    ///   * выполнять поиск других элементов внутри иерархии
+  func test_CanNotSubscribe_ToNonURL() {
     let app = XCUIApplication()
     app.launch()
 
-    // Ввод текста не будет работать без нажатия на текстовое поле
-    // XCTest нужна видимая клавиатура
     app.textFields.firstMatch.tap()
+    app.textFields.firstMatch.typeText("не сайт")
 
-    app.textFields.firstMatch.typeText("https://example.org/")
-    app.buttons.firstMatch.tap()
-
-    // assert что? Добавился ли фид?
+    XCTAssertFalse(app.buttons["Subscribe"].isEnabled)
   }
 }
