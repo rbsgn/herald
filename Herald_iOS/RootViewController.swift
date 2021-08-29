@@ -24,6 +24,7 @@ class RootViewController: UIViewController {
   override func loadView() {
     let view = UIView(frame: .zero)
     view.backgroundColor = .systemOrange
+    view.accessibilityId = .subscribeFeedScreen
 
     let textField = makeTextField()
     layout(textField, in: view)
@@ -102,6 +103,7 @@ extension RootViewController: RSSFeedImporterDelegate {
 private func makeTextField() -> UITextField {
   let result = UITextField(frame: .zero)
   result.borderStyle = .roundedRect
+  result.accessibilityId = .feedAddressTextField
   return result
 }
 
@@ -121,6 +123,7 @@ private func layout(_ textField: UIView, in host: UIView) {
 private func makeAddFeedButton() -> UIControl {
   let result = UIButton(type: .system)
   result.setTitle("Subscribe", for: .normal)
+  result.accessibilityId = .subscribeButton
   return result
 }
 
@@ -142,6 +145,7 @@ private func makeErrorLabel() -> UILabel {
   let result = UILabel(frame: .zero)
   result.isHidden = true
   result.numberOfLines = 0
+  result.accessibilityId = .subscriptionErrorLabel
   return result
 }
 

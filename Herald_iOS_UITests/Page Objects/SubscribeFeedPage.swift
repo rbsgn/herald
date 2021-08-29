@@ -1,5 +1,6 @@
 import XCTest
 
+
 /// Очень напоминает SubscribeFeedViewModel, это программное взаимодействие
 /// с экраном подписки на фид
 struct SubscribeFeedPage {
@@ -7,13 +8,13 @@ struct SubscribeFeedPage {
   var canSubscribe: Bool { subscribeButton.isEnabled }
   var feedAddress: String { feedAddressTextField.value as? String ?? "" }
 
-  private let app: XCUIApplication
+  private let view: XCUIElement
 
-  private var subscribeButton: XCUIElement { app.buttons.firstMatch }
-  private var feedAddressTextField: XCUIElement { app.textFields.firstMatch }
+  private var subscribeButton: XCUIElement { view.buttons[.subscribeButton] }
+  private var feedAddressTextField: XCUIElement { view.textFields[.feedAddressTextField] }
 
   init(app: XCUIApplication) {
-    self.app = app
+    self.view = app.otherElements[.subscribeFeedScreen]
   }
 
   func subscribe() {
@@ -26,7 +27,7 @@ struct SubscribeFeedPage {
   }
 
   func errorMessagePresent(_ message: String) -> Bool {
-    app.staticTexts[message].exists
+    view.staticTexts[message].exists
   }
 }
 

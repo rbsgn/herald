@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA5B2EC026DB80B400F499E8 /* RSSFeedImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EBF26DB80B400F499E8 /* RSSFeedImporter.swift */; };
 		AA5B2EC326DBD1F000F499E8 /* SubscribeFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC226DBD1F000F499E8 /* SubscribeFeedPage.swift */; };
+		AA5B2EC526DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */; };
+		AA5B2EC626DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */; };
+		AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */; };
+		AA5B2ECC26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
@@ -29,6 +33,9 @@
 /* Begin PBXFileReference section */
 		AA5B2EBF26DB80B400F499E8 /* RSSFeedImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedImporter.swift; sourceTree = "<group>"; };
 		AA5B2EC226DBD1F000F499E8 /* SubscribeFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeFeedPage.swift; sourceTree = "<group>"; };
+		AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
+		AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAccessibilityIdentification+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
+		AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +73,14 @@
 			path = "Page Objects";
 			sourceTree = "<group>";
 		};
+		AA5B2ECD26DBFEC400F499E8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AADD532E26DA841400CFBF49 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +108,8 @@
 				AADD534526DA848800CFBF49 /* Assets.xcassets */,
 				AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */,
 				AADD534A26DA848800CFBF49 /* Info.plist */,
+				AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */,
+				AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */,
 			);
 			path = Herald_iOS;
 			sourceTree = "<group>";
@@ -100,6 +117,7 @@
 		AADD535326DA874500CFBF49 /* Herald_iOS_UITests */ = {
 			isa = PBXGroup;
 			children = (
+				AA5B2ECD26DBFEC400F499E8 /* Helpers */,
 				AA5B2EC126DBD1DD00F499E8 /* Page Objects */,
 				AADD535426DA874500CFBF49 /* Herald_iOS_UITests.swift */,
 				AADD535626DA874500CFBF49 /* Info.plist */,
@@ -207,8 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADD535D26DA95FC00CFBF49 /* RootViewController.swift in Sources */,
+				AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */,
 				AA5B2EC026DB80B400F499E8 /* RSSFeedImporter.swift in Sources */,
 				AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */,
+				AA5B2EC526DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5B2EC626DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
 				AADD535526DA874500CFBF49 /* Herald_iOS_UITests.swift in Sources */,
 				AA5B2EC326DBD1F000F499E8 /* SubscribeFeedPage.swift in Sources */,
+				AA5B2ECC26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
