@@ -38,7 +38,7 @@ private func layout(_ textField: UIView, in host: UIView) {
 
 private func makeAddFeedButton() -> UIControl {
   let result = UIButton(type: .system)
-  result.setTitle("Add", for: .normal)
+  result.setTitle("Subscribe", for: .normal)
   return result
 }
 
