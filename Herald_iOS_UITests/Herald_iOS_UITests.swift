@@ -44,4 +44,21 @@ class Herald_iOS_UITests: XCTestCase {
 
     XCTAssertFalse(subscribeButton.isEnabled)
   }
+
+  // Знаем наперёд, что у сайта нет фида. Поэтому либо подделываем ответ,
+  // либо сами создаём такой сайт
+  func test_CanNotSubscribe_WhenURLHasNotRSSFeed() {
+    let app = XCUIApplication()
+    app.launch()
+
+    let urlTextField = app.textFields.firstMatch
+    let subscribeButton = app.buttons.firstMatch
+
+    urlTextField.tap()
+    urlTextField.typeText("https://apple.com/")
+
+    subscribeButton.tap()
+
+    XCTAssertTrue(app.staticTexts["У сайта нет RSS-потока"].exists)
+  }
 }

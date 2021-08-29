@@ -3,8 +3,23 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+  private let feedImporter: RSSFeedImporter
+
   private weak var textField: UITextField?
   private weak var subscribeButton: UIControl?
+  private weak var errorLabel: UILabel?
+
+  init(feedImporter: RSSFeedImporter) {
+    self.feedImporter = feedImporter
+
+    super.init(nibName: nil, bundle: nil)
+
+    self.feedImporter.delegate = self
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError()
+  }
 
   override func loadView() {
     let view = UIView(frame: .zero)
@@ -19,8 +34,17 @@ class RootViewController: UIViewController {
     )
 
     let button = makeAddFeedButton()
-    layout(button, below: textField, in: view)
+    layoutSubscribeButton(button, below: textField, in: view)
+    button.addTarget(
+      self,
+      action: #selector(subscribeButtonTapped(_:)),
+      for: .touchUpInside
+    )
 
+    let errorLabel = makeErrorLabel()
+    layoutErrorLabel(errorLabel, below: button, in: view)
+
+    self.errorLabel = errorLabel
     self.textField = textField
     self.subscribeButton = button
     self.view = view
@@ -30,6 +54,11 @@ class RootViewController: UIViewController {
     super.viewDidLoad()
 
     updateSubscribeStatus(userInput: textField?.text)
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    errorLabel?.preferredMaxLayoutWidth = view.bounds.width - 8.0 * 2
   }
 
   @objc private func textFieldDidChange(_ sender: UITextField) {
@@ -44,6 +73,28 @@ class RootViewController: UIViewController {
     else {
       subscribeButton?.isEnabled = false
     }
+  }
+
+  @objc private func subscribeButtonTapped(_ sender: UIButton) {
+    guard
+      let userInput = textField?.text,
+      let url = URL(string: userInput)
+    else {
+      return
+    }
+
+    feedImporter.import(from: url)
+  }
+}
+
+
+extension RootViewController: RSSFeedImporterDelegate {
+  func feedImporter(
+    _ importer: RSSFeedImporter,
+    didFailWithError error: Error
+  ) {
+    errorLabel?.text = error.localizedDescription
+    errorLabel?.isHidden = false
   }
 }
 
@@ -73,7 +124,7 @@ private func makeAddFeedButton() -> UIControl {
   return result
 }
 
-private func layout(
+private func layoutSubscribeButton(
   _ button: UIView,
   below textField: UIView,
   in host: UIView
@@ -84,5 +135,27 @@ private func layout(
   NSLayoutConstraint.activate([
     button.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 8),
     button.centerXAnchor.constraint(equalTo: textField.centerXAnchor)
+  ])
+}
+
+private func makeErrorLabel() -> UILabel {
+  let result = UILabel(frame: .zero)
+  result.isHidden = true
+  result.numberOfLines = 0
+  return result
+}
+
+private func layoutErrorLabel(
+  _ errorLabel: UIView,
+  below aboveError: UIView,
+  in host: UIView
+) {
+  host.addSubview(errorLabel)
+  errorLabel.translatesAutoresizingMaskIntoConstraints = false
+
+  NSLayoutConstraint.activate([
+    errorLabel.topAnchor.constraint(equalTo: aboveError.bottomAnchor, constant: 8),
+    errorLabel.leadingAnchor.constraint(equalTo: aboveError.leadingAnchor),
+    errorLabel.trailingAnchor.constraint(equalTo: aboveError.trailingAnchor)
   ])
 }

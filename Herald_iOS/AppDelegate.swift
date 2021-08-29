@@ -10,7 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     let window = UIWindow(frame: UIScreen.main.bounds)
-    window.rootViewController = RootViewController()
+    let feedImporter = RSSFeedImporter()
+    let viewController = RootViewController(feedImporter: feedImporter)
+
+    window.rootViewController = viewController
     window.makeKeyAndVisible()
 
     self.window = window
