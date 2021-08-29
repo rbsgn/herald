@@ -46,8 +46,13 @@ class Herald_iOS_UITests: XCTestCase {
     let app = XCUIApplication()
     app.launch()
 
-    /// Если не знаете с чего начать — используйте запись теста, запустив существующее
-    /// приложение. Затем отладчиком можно посмотреть структуру дерева и использовать
-    /// эту информацию для написания `XCTAssert`-ов
+    // Ввод текста не будет работать без нажатия на текстовое поле
+    // XCTest нужна видимая клавиатура
+    app.textFields.firstMatch.tap()
+
+    app.textFields.firstMatch.typeText("https://example.org/")
+    app.buttons.firstMatch.tap()
+
+    // assert что? Добавился ли фид?
   }
 }
