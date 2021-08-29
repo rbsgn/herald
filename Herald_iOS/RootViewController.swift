@@ -3,6 +3,7 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+  private weak var textField: UITextField?
   private weak var subscribeButton: UIControl?
 
   override func loadView() {
@@ -20,8 +21,15 @@ class RootViewController: UIViewController {
     let button = makeAddFeedButton()
     layout(button, below: textField, in: view)
 
+    self.textField = textField
     self.subscribeButton = button
     self.view = view
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    updateSubscribeStatus(userInput: textField?.text)
   }
 
   @objc private func textFieldDidChange(_ sender: UITextField) {

@@ -28,9 +28,13 @@ class Herald_iOS_UITests: XCTestCase {
 
   }
 
-  func test_CanNotSubscribe_ToNonURL() {
+  func test_CanNotSubscribe_ToNonURL() throws {
     let app = XCUIApplication()
     app.launch()
+
+    let text = try XCTUnwrap(app.textFields.firstMatch.value as? String)
+    XCTAssertEqual(text, "")
+    XCTAssertFalse(app.buttons.firstMatch.isEnabled)
 
     app.textFields.firstMatch.tap()
     app.textFields.firstMatch.typeText("не сайт")
