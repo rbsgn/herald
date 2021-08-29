@@ -1,64 +1,34 @@
 import XCTest
 
-/// Содержит тесты, сгруппированные по какому-то признаку:
-///   * Тесты на класс
-///   * Тесты на какой-то экран приложения
+
 class Herald_iOS_UITests: XCTestCase {
 
-  /// Вызывается единственный раз перед запуском тестов в сценарии.
-  /// Может использоваться, например, для начального состояния *всех* тестов
-  override class func setUp() { }
+  var app: XCUIApplication!
+  var subscribeFeedPage: SubscribeFeedPage!
 
-  /// Вызывается единственный раз после выполнения последнего теста в сценарии.
-  /// Может использоваться для подчистки того, что сделали тесты
-  override class func tearDown() { }
-
-  /// Вызывается перед запуском каждого теста. Используется для создания объектов,
-  /// необходимых для тестирования или приведение приложения в нужное состояние
   override func setUpWithError() throws {
-
-    /// Флаг, отвечающий за продолжение работы тестового сценария при возникновения ошибки.
-    /// Обычно, ставится в `false`.
     continueAfterFailure = false
-  }
 
-  /// Вызывается сразу после завершения каждого теста. Как и class-вариант, используется для
-  /// подчистки за тестом (удаление файлов, отписывание от уведомлений и т.п.)
-  override func tearDownWithError() throws {
+    app = XCUIApplication()
+    app.launch()
 
+    subscribeFeedPage = SubscribeFeedPage(app: app)
   }
 
   func test_CanNotSubscribe_ToNonURL() throws {
-    let app = XCUIApplication()
-    app.launch()
+    XCTAssertEqual(subscribeFeedPage.feedAddress, "")
+    XCTAssertFalse(subscribeFeedPage.canSubscribe)
 
-    let urlTextField = app.textFields.firstMatch
-    let subscribeButton = app.buttons.firstMatch
-
-    let text = try XCTUnwrap(urlTextField.value as? String)
-    XCTAssertEqual(text, "")
-    XCTAssertFalse(subscribeButton.isEnabled)
-
-    urlTextField.tap()
-    urlTextField.typeText("не сайт")
-
-    XCTAssertFalse(subscribeButton.isEnabled)
+    subscribeFeedPage.typeURL("не сайт")
+    XCTAssertFalse(subscribeFeedPage.canSubscribe)
   }
 
   // Знаем наперёд, что у сайта нет фида. Поэтому либо подделываем ответ,
   // либо сами создаём такой сайт
   func test_CanNotSubscribe_WhenURLHasNotRSSFeed() {
-    let app = XCUIApplication()
-    app.launch()
+    subscribeFeedPage.typeURL("https://apple.com/")
+    subscribeFeedPage.subscribe()
 
-    let urlTextField = app.textFields.firstMatch
-    let subscribeButton = app.buttons.firstMatch
-
-    urlTextField.tap()
-    urlTextField.typeText("https://apple.com/")
-
-    subscribeButton.tap()
-
-    XCTAssertTrue(app.staticTexts["У сайта нет RSS-потока"].exists)
+    XCTAssertTrue(subscribeFeedPage.errorMessagePresent("У сайта нет RSS-потока"))
   }
 }
