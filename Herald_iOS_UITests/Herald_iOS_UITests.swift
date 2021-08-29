@@ -31,4 +31,9 @@ class Herald_iOS_UITests: XCTestCase {
 
     XCTAssertTrue(subscribeFeedPage.errorMessagePresent("У сайта нет RSS-потока"))
   }
+
+  func test_AfterImport_ShowsSubscriptionsPage() {
+    subscribeFeedPage.typeURL("https://yandex.ru/")
+    subscribeFeedPage.subscribe()
+  }
 }
