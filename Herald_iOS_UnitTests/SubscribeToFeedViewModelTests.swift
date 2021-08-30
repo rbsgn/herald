@@ -18,6 +18,7 @@ class SubscribeToFeedViewModelTests: XCTestCase {
     XCTAssertEqual(subject.canSubscribe, false)
     XCTAssertEqual(subject.errorMessage, "")
     XCTAssertEqual(subject.errorMessageHidden, true)
+    XCTAssertEqual(subject.subscribedSuccessfully, false)
   }
 
   func test_WhenUserTypesNonURL_ThenCanNotSubscribe() {
@@ -51,15 +52,14 @@ class SubscribeToFeedViewModelTests: XCTestCase {
     subject.subscribe()
 
     let message = try XCTUnwrap(subject.errorMessage)
-
     XCTAssertGreaterThan(message.count, 0)
     XCTAssertFalse(subject.errorMessageHidden)
   }
 
-  func test_GivenRSSFeedInfoWasExtracted_ThenPersistsIt() throws {
+  func test_GivenRSSFeedInfoWasExtracted_ThenSavesIt_AndNotifiesDone() throws {
     let info = FeedInfo(title: "foo", url: URL(string: "https://example.org/")!)
     let extractor = SucceedingFeedInfoExtractor(feedInfo: info)
-    let saver = SpyingFeedInfoSaver()
+    let saver = FakeFeedInfoSaver()
 
     subject = makeSubject(extractor: extractor, saver: saver)
 
@@ -68,5 +68,21 @@ class SubscribeToFeedViewModelTests: XCTestCase {
 
     let savedInfo = try XCTUnwrap(saver.savedInfo)
     XCTAssertEqual(savedInfo, info)
+    XCTAssertEqual(subject.subscribedSuccessfully, true)
+  }
+
+  func test_GivenRSSFeedInfoWasExtracted_ButNotSaved_ThenShowsErrorMessage() throws {
+    let info = FeedInfo(title: "foo", url: URL(string: "https://example.org/")!)
+    let extractor = SucceedingFeedInfoExtractor(feedInfo: info)
+    let saver = FailingFeedInfoSaver()
+
+    subject = makeSubject(extractor: extractor, saver: saver)
+
+    subject.typeText("https://some-website.com/")
+    subject.subscribe()
+
+    let message = try XCTUnwrap(subject.errorMessage)
+    XCTAssertGreaterThan(message.count, 0)
+    XCTAssertFalse(subject.errorMessageHidden)
   }
 }

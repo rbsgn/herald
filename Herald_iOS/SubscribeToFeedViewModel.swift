@@ -5,6 +5,7 @@ class SubscribeToFeedViewModel {
   private(set) var canSubscribe = false
   private(set) var errorMessage = ""
   private(set) var errorMessageHidden = true
+  private(set) var subscribedSuccessfully = false
 
   private let feedInfoExtractor: RSSFeedExtracting
   private let feedInfoSaver: FeedInfoSaving
@@ -35,22 +36,37 @@ class SubscribeToFeedViewModel {
   ) {
     switch result {
     case .success(let feedInfo):
-      handleSuccess(feedInfo)
+      handleSuccessfulExtraction(feedInfo)
     case .failure(let error):
-      handleError(error)
+      handleFailedExtraction(error)
     }
   }
 
-  private func handleSuccess(_ feedInfo: FeedInfo) {
-    feedInfoSaver.save(feedInfo)
+  private func handleSuccessfulExtraction(_ feedInfo: FeedInfo) {
+    feedInfoSaver.save(feedInfo) { [weak self] result in
+      self?.handleFeedInfoSavingResult(result)
+    }
   }
 
-  private func handleError(_ error: RSSFeedExtractingError) {
+  private func handleFailedExtraction(_ error: RSSFeedExtractingError) {
     switch error {
     case .noFeed:
       errorMessage = "У сайта нет RSS потока"
     }
 
     errorMessageHidden = false
+  }
+
+  private func handleFeedInfoSavingResult(
+    _ result: Result<Void, FeedInfoSavingError>
+  ) {
+    switch result {
+    case .success:
+      subscribedSuccessfully = true
+
+    case .failure:
+      errorMessage = "Невозможно сохранить подписку"
+      errorMessageHidden = false
+    }
   }
 }
