@@ -8,7 +8,9 @@ final class ViewControllerFactory {
     self.config = config
   }
 
-  func makeSubscribeToFeed() -> UIViewController {
+  func makeSubscribeToFeed(
+    delegate: SubscribeToFeedViewControllerDelegate
+  ) -> UIViewController {
     let viewModel =
       SubscribeToFeedViewModel(
         feedInfoExtractor: makeRSSFeedExtracor(),
@@ -16,6 +18,7 @@ final class ViewControllerFactory {
       )
 
     let result = SubscribeToFeedViewController(viewModel: viewModel)
+    result.delegate = delegate
 
     return result
   }

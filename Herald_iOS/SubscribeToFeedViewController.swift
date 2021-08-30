@@ -97,7 +97,9 @@ final class SubscribeToFeedViewController: UIViewController {
         \.errorMessageHidden,
         options: [.initial, .new],
         changeHandler: { [unowned self] observedViewModel, change in
-          self.delegate?.subscribeFeedViewControllerDidFinish(self)
+          if observedViewModel.subscribedSuccessfully {
+            self.delegate?.subscribeFeedViewControllerDidFinish(self)
+          }
         }
       )
   }

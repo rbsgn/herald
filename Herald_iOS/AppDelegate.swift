@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let viewControllerFactory = ViewControllerFactory(config: config)
 
     let subscriptions = viewControllerFactory.makeSubscriptions()
-    let subscribeToFeed = viewControllerFactory.makeSubscribeToFeed()
+    let subscribeToFeed = viewControllerFactory.makeSubscribeToFeed(delegate: self)
 
     window.rootViewController = subscriptions
     window.makeKeyAndVisible()
@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = window
 
     return true
+  }
+}
+
+extension AppDelegate: SubscribeToFeedViewControllerDelegate {
+  func subscribeFeedViewControllerDidFinish(
+    _ controller: SubscribeToFeedViewController
+  ) {
+    window?.rootViewController?.dismiss(animated: true)
   }
 }
 
