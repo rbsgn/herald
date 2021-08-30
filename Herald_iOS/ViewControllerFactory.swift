@@ -2,10 +2,14 @@ import UIKit
 
 
 final class ViewControllerFactory {
-  func makeSubscribeFeedViewController() -> UIViewController {
-    let importer = RSSFeedImporter()
-    let result = SubscribeFeedViewController(feedImporter: importer)
+  func makeSubscribeToFeed() -> UIViewController {
+    let extractor = RSSFeedURLExtractor()
+    let result = SubscribeToFeedViewController(feedURLExtractor: extractor)
 
     return result
+  }
+
+  func makeSubscriptions() -> UIViewController {
+    SubscriptionsViewController()
   }
 }

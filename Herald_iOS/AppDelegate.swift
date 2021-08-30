@@ -11,10 +11,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     let window = UIWindow(frame: UIScreen.main.bounds)
-    let factory = ViewControllerFactory()
 
-    window.rootViewController = factory.makeSubscribeFeedViewController()
+    let viewControllerFactory = ViewControllerFactory()
+    let subscriptions = viewControllerFactory.makeSubscriptions()
+    let subscribeToFeed = viewControllerFactory.makeSubscribeToFeed()
+
+    window.rootViewController = subscriptions
     window.makeKeyAndVisible()
+
+    subscriptions.present(subscribeToFeed, animated: false)
 
     self.window = window
 

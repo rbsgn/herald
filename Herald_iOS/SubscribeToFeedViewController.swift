@@ -1,20 +1,29 @@
 import UIKit
 
 
-final class SubscribeFeedViewController: UIViewController {
+protocol SubscribeToFeedViewControllerDelegate: AnyObject {
+  func subscribeFeedViewControllerDidFinish(
+    _ controller: SubscribeToFeedViewController
+  )
+}
 
-  private let feedImporter: RSSFeedImporter
+
+final class SubscribeToFeedViewController: UIViewController {
+
+  weak var delegate: SubscribeToFeedViewControllerDelegate?
+
+  private let feedURLExtractor: RSSFeedURLExtractor
 
   private weak var textField: UITextField?
   private weak var subscribeButton: UIControl?
   private weak var errorLabel: UILabel?
 
-  init(feedImporter: RSSFeedImporter) {
-    self.feedImporter = feedImporter
+  init(feedURLExtractor: RSSFeedURLExtractor) {
+    self.feedURLExtractor = feedURLExtractor
 
     super.init(nibName: nil, bundle: nil)
 
-    self.feedImporter.delegate = self
+    self.feedURLExtractor.delegate = self
   }
 
   required init?(coder: NSCoder) {
@@ -84,14 +93,19 @@ final class SubscribeFeedViewController: UIViewController {
       return
     }
 
-    feedImporter.import(from: url)
+    feedURLExtractor.extract(from: url)
   }
 }
 
 
-extension SubscribeFeedViewController: RSSFeedImporterDelegate {
-  func feedImporter(
-    _ importer: RSSFeedImporter,
+extension SubscribeToFeedViewController: RSSFeedURLExtractorDelegate {
+
+  func feedURLExtractorDidFinish(_ extractor: RSSFeedURLExtractor) {
+    delegate?.subscribeFeedViewControllerDidFinish(self)
+  }
+
+  func feedURLExtractor(
+    _ extractor: RSSFeedURLExtractor,
     didFailWithError error: Error
   ) {
     errorLabel?.text = error.localizedDescription
