@@ -7,7 +7,6 @@ protocol SubscribeToFeedViewControllerDelegate: AnyObject {
   )
 }
 
-
 final class SubscribeToFeedViewController: UIViewController {
 
   weak var delegate: SubscribeToFeedViewControllerDelegate?
@@ -96,7 +95,7 @@ final class SubscribeToFeedViewController: UIViewController {
   }
 
   private func handleFeedExtractionResult(
-    _ result: Result<Feed, RSSFeedExtractingError>
+    _ result: Result<FeedInfo, RSSFeedExtractingError>
   ) {
     switch result {
     case .success(let feed):
@@ -106,7 +105,7 @@ final class SubscribeToFeedViewController: UIViewController {
     }
   }
 
-  private func handleExtractedFeed(_ feed: Feed) {
+  private func handleExtractedFeed(_ feed: FeedInfo) {
     delegate?.subscribeFeedViewControllerDidFinish(self)
   }
 

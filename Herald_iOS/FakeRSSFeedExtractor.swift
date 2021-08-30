@@ -4,11 +4,11 @@ import Foundation
 class FakeRSSFeedExtractor: RSSFeedExtracting {
   func feeds(
     from website: URL,
-    completion: @escaping (Result<Feed, RSSFeedExtractingError>) -> Void
+    completion: @escaping (Result<FeedInfo, RSSFeedExtractingError>) -> Void
   ) {
     if website.host == "daringfireball.net" {
       let stubFeed =
-        Feed(
+        FeedInfo(
           title: "Daring Fireball",
           url: URL(string: "https://daringfireball.net/feeds/main")!
         )
