@@ -10,11 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    logProcessLaunchContext()
-
     let window = UIWindow(frame: UIScreen.main.bounds)
 
-    let viewControllerFactory = ViewControllerFactory()
+    let config = AppConfig(processArguments: ProcessInfo.processInfo.arguments)
+    let viewControllerFactory = ViewControllerFactory(config: config)
+
     let subscriptions = viewControllerFactory.makeSubscriptions()
     let subscribeToFeed = viewControllerFactory.makeSubscribeToFeed()
 
@@ -26,12 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = window
 
     return true
-  }
-
-  private func logProcessLaunchContext() {
-    let currentProcess = ProcessInfo.processInfo
-    print(">>> Process arguments: \(currentProcess.arguments)")
-    print(">>> Process environment: \(currentProcess.environment)")
   }
 }
 

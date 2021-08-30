@@ -17,6 +17,13 @@
 		AA5B2ED126DCB06100F499E8 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */; };
 		AA5B2ED326DCB11800F499E8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */; };
 		AA5B2EDB26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EDA26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift */; };
+		AA5B2EE226DD105A00F499E8 /* AppProcessArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */; };
+		AA5B2EE326DD105A00F499E8 /* AppProcessArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */; };
+		AA5B2EE526DD10C700F499E8 /* XCUIApplication+AppProcessArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EE426DD10C700F499E8 /* XCUIApplication+AppProcessArguments.swift */; };
+		AA5B2EE726DD133200F499E8 /* Process+AppProcessArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EE626DD133200F499E8 /* Process+AppProcessArguments.swift */; };
+		AA5B2EE926DD42F800F499E8 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EE826DD42F800F499E8 /* AppConfig.swift */; };
+		AA5B2EEB26DD441F00F499E8 /* RSSFeedExtracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */; };
+		AA5B2EED26DD468E00F499E8 /* FakeRSSFeedExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EEC26DD468E00F499E8 /* FakeRSSFeedExtractor.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
@@ -46,6 +53,12 @@
 		AA5B2ED826DCBACA00F499E8 /* Herald_iOS_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Herald_iOS_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA5B2EDA26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedURLExtractorTests.swift; sourceTree = "<group>"; };
 		AA5B2EDC26DCBACA00F499E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProcessArguments.swift; sourceTree = "<group>"; };
+		AA5B2EE426DD10C700F499E8 /* XCUIApplication+AppProcessArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+AppProcessArguments.swift"; sourceTree = "<group>"; };
+		AA5B2EE626DD133200F499E8 /* Process+AppProcessArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Process+AppProcessArguments.swift"; sourceTree = "<group>"; };
+		AA5B2EE826DD42F800F499E8 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedExtracting.swift; sourceTree = "<group>"; };
+		AA5B2EEC26DD468E00F499E8 /* FakeRSSFeedExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRSSFeedExtractor.swift; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */,
+				AA5B2EE426DD10C700F499E8 /* XCUIApplication+AppProcessArguments.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -141,6 +155,11 @@
 				AADD534A26DA848800CFBF49 /* Info.plist */,
 				AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */,
 				AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */,
+				AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */,
+				AA5B2EE626DD133200F499E8 /* Process+AppProcessArguments.swift */,
+				AA5B2EE826DD42F800F499E8 /* AppConfig.swift */,
+				AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */,
+				AA5B2EEC26DD468E00F499E8 /* FakeRSSFeedExtractor.swift */,
 			);
 			path = Herald_iOS;
 			sourceTree = "<group>";
@@ -292,11 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADD535D26DA95FC00CFBF49 /* SubscribeToFeedViewController.swift in Sources */,
+				AA5B2EEB26DD441F00F499E8 /* RSSFeedExtracting.swift in Sources */,
+				AA5B2EE926DD42F800F499E8 /* AppConfig.swift in Sources */,
 				AA5B2ED326DCB11800F499E8 /* ViewControllerFactory.swift in Sources */,
+				AA5B2EED26DD468E00F499E8 /* FakeRSSFeedExtractor.swift in Sources */,
+				AA5B2EE226DD105A00F499E8 /* AppProcessArguments.swift in Sources */,
 				AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */,
 				AA5B2EC026DB80B400F499E8 /* RSSFeedURLExtractor.swift in Sources */,
 				AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */,
 				AA5B2EC526DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
+				AA5B2EE726DD133200F499E8 /* Process+AppProcessArguments.swift in Sources */,
 				AA5B2ED126DCB06100F499E8 /* SubscriptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,11 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5B2EE326DD105A00F499E8 /* AppProcessArguments.swift in Sources */,
 				AA5B2ECF26DCAFCA00F499E8 /* SubscriptionsPage.swift in Sources */,
 				AA5B2EC626DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
 				AADD535526DA874500CFBF49 /* Herald_iOS_UITests.swift in Sources */,
 				AA5B2EC326DBD1F000F499E8 /* SubscribeFeedPage.swift in Sources */,
 				AA5B2ECC26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift in Sources */,
+				AA5B2EE526DD10C700F499E8 /* XCUIApplication+AppProcessArguments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

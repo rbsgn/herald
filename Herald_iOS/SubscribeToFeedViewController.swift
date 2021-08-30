@@ -12,18 +12,15 @@ final class SubscribeToFeedViewController: UIViewController {
 
   weak var delegate: SubscribeToFeedViewControllerDelegate?
 
-  private let feedURLExtractor: RSSFeedURLExtractor
+  private let feedExtractor: RSSFeedExtracting
 
   private weak var textField: UITextField?
   private weak var subscribeButton: UIControl?
   private weak var errorLabel: UILabel?
 
-  init(feedURLExtractor: RSSFeedURLExtractor) {
-    self.feedURLExtractor = feedURLExtractor
-
+  init(feedExtractor: RSSFeedExtracting) {
+    self.feedExtractor = feedExtractor
     super.init(nibName: nil, bundle: nil)
-
-    self.feedURLExtractor.delegate = self
   }
 
   required init?(coder: NSCoder) {
@@ -93,25 +90,34 @@ final class SubscribeToFeedViewController: UIViewController {
       return
     }
 
-    feedURLExtractor.extract(from: url)
+    feedExtractor.feeds(from: url) { [weak self] result in
+      self?.handleFeedExtractionResult(result)
+    }
   }
-}
 
-
-extension SubscribeToFeedViewController: RSSFeedURLExtractorDelegate {
-
-  func feedURLExtractor(
-    _ extractor: RSSFeedURLExtractor,
-    didExtract urls: [URL]
+  private func handleFeedExtractionResult(
+    _ result: Result<Feed, RSSFeedExtractingError>
   ) {
+    switch result {
+    case .success(let feed):
+      handleExtractedFeed(feed)
+    case .failure(let error):
+      handleExtractionError(error)
+    }
+  }
+
+  private func handleExtractedFeed(_ feed: Feed) {
     delegate?.subscribeFeedViewControllerDidFinish(self)
   }
 
-  func feedURLExtractor(
-    _ extractor: RSSFeedURLExtractor,
-    didFailWithError error: Error
-  ) {
-    errorLabel?.text = error.localizedDescription
+  private func handleExtractionError(_ error: RSSFeedExtractingError) {
+    let message: String
+    switch error {
+    case .noFeed:
+      message = "У сайта нет RSS-потока"
+    }
+    
+    errorLabel?.text = message
     errorLabel?.isHidden = false
   }
 }

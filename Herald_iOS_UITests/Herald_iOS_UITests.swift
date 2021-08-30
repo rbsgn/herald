@@ -10,8 +10,7 @@ class Herald_iOS_UITests: XCTestCase {
     continueAfterFailure = false
 
     app = XCUIApplication()
-    app.launchArguments = ["Hello from XCTest"]
-    app.launchEnvironment = ["Environment": "XCTest"]
+    app.setProcessArguments([.fakeRSSParsing])
     app.launch()
 
     subscribeFeedPage = SubscribeFeedPage(app: app)
@@ -25,8 +24,6 @@ class Herald_iOS_UITests: XCTestCase {
     XCTAssertFalse(subscribeFeedPage.canSubscribe)
   }
 
-  // Знаем наперёд, что у сайта нет фида. Поэтому либо подделываем ответ,
-  // либо сами создаём такой сайт
   func test_CanNotSubscribe_WhenURLHasNotRSSFeed() {
     subscribeFeedPage.typeURL("https://apple.com/")
     subscribeFeedPage.subscribe()
