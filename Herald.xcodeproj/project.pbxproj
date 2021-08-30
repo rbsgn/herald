@@ -13,6 +13,7 @@
 		AA5B2EC626DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */; };
 		AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */; };
 		AA5B2ECC26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */; };
+		AA5B2ECF26DCAFCA00F499E8 /* SubscriptionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,7 @@
 		AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAccessibilityIdentification+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
 		AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
+		AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsPage.swift; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5B2EC226DBD1F000F499E8 /* SubscribeFeedPage.swift */,
+				AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */,
 			);
 			path = "Page Objects";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5B2ECF26DCAFCA00F499E8 /* SubscriptionsPage.swift in Sources */,
 				AA5B2EC626DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
 				AADD535526DA874500CFBF49 /* Herald_iOS_UITests.swift in Sources */,
 				AA5B2EC326DBD1F000F499E8 /* SubscribeFeedPage.swift in Sources */,

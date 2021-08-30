@@ -3,4 +3,6 @@ enum AccessibilityIdentifier: String {
   case subscribeButton
   case feedAddressTextField
   case subscriptionErrorLabel
+
+  case subscriptionsPage
 }

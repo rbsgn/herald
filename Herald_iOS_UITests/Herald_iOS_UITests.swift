@@ -35,5 +35,8 @@ class Herald_iOS_UITests: XCTestCase {
   func test_AfterImport_ShowsSubscriptionsPage() {
     subscribeFeedPage.typeURL("https://yandex.ru/")
     subscribeFeedPage.subscribe()
+
+    let subscriptionsPage = SubscriptionsPage(app: app)
+    XCTAssertTrue(subscriptionsPage.exists)
   }
 }
