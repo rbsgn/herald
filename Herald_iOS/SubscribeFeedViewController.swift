@@ -1,7 +1,7 @@
 import UIKit
 
 
-class RootViewController: UIViewController {
+final class SubscribeFeedViewController: UIViewController {
 
   private let feedImporter: RSSFeedImporter
 
@@ -89,7 +89,7 @@ class RootViewController: UIViewController {
 }
 
 
-extension RootViewController: RSSFeedImporterDelegate {
+extension SubscribeFeedViewController: RSSFeedImporterDelegate {
   func feedImporter(
     _ importer: RSSFeedImporter,
     didFailWithError error: Error

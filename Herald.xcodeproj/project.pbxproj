@@ -14,11 +14,12 @@
 		AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */; };
 		AA5B2ECC26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */; };
 		AA5B2ECF26DCAFCA00F499E8 /* SubscriptionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */; };
+		AA5B2ED326DCB11800F499E8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
 		AADD535526DA874500CFBF49 /* Herald_iOS_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD535426DA874500CFBF49 /* Herald_iOS_UITests.swift */; };
-		AADD535D26DA95FC00CFBF49 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD535C26DA95FC00CFBF49 /* RootViewController.swift */; };
+		AADD535D26DA95FC00CFBF49 /* SubscribeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD535C26DA95FC00CFBF49 /* SubscribeFeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAccessibilityIdentification+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
 		AA5B2ECB26DBFEA400F499E8 /* XCUIElementQuery+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
 		AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsPage.swift; sourceTree = "<group>"; };
+		AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		AADD535226DA874500CFBF49 /* Herald_iOS_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Herald_iOS_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD535426DA874500CFBF49 /* Herald_iOS_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Herald_iOS_UITests.swift; sourceTree = "<group>"; };
 		AADD535626DA874500CFBF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AADD535C26DA95FC00CFBF49 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		AADD535C26DA95FC00CFBF49 /* SubscribeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeFeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				AADD533C26DA848800CFBF49 /* AppDelegate.swift */,
-				AADD535C26DA95FC00CFBF49 /* RootViewController.swift */,
+				AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */,
+				AADD535C26DA95FC00CFBF49 /* SubscribeFeedViewController.swift */,
 				AA5B2EBF26DB80B400F499E8 /* RSSFeedImporter.swift */,
 				AADD534526DA848800CFBF49 /* Assets.xcassets */,
 				AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */,
@@ -227,7 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AADD535D26DA95FC00CFBF49 /* RootViewController.swift in Sources */,
+				AADD535D26DA95FC00CFBF49 /* SubscribeFeedViewController.swift in Sources */,
+				AA5B2ED326DCB11800F499E8 /* ViewControllerFactory.swift in Sources */,
 				AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */,
 				AA5B2EC026DB80B400F499E8 /* RSSFeedImporter.swift in Sources */,
 				AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */,
