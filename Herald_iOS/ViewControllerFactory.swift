@@ -9,8 +9,13 @@ final class ViewControllerFactory {
   }
 
   func makeSubscribeToFeed() -> UIViewController {
-    let extractor = makeRSSFeedExtracor()
-    let result = SubscribeToFeedViewController(feedExtractor: extractor)
+    let viewModel =
+      SubscribeToFeedViewModel(
+        feedInfoExtractor: makeRSSFeedExtracor(),
+        feedInfoSaver: makeRSSInfoSaver()
+      )
+
+    let result = SubscribeToFeedViewController(viewModel: viewModel)
 
     return result
   }
@@ -24,5 +29,9 @@ final class ViewControllerFactory {
       config.fakeRSSParsing ?
         FakeRSSFeedExtractor() :
         RSSFeedExtractor()
+  }
+
+  private func makeRSSInfoSaver() -> FeedInfoSaving {
+    FeedInfoSaver()
   }
 }

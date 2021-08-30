@@ -1,11 +1,12 @@
 import Foundation
 
-class SubscribeToFeedViewModel {
+class SubscribeToFeedViewModel: NSObject {
   private(set) var userInput = ""
-  private(set) var canSubscribe = false
   private(set) var errorMessage = ""
-  private(set) var errorMessageHidden = true
-  private(set) var subscribedSuccessfully = false
+
+  @objc dynamic private(set) var canSubscribe = false
+  @objc dynamic private(set) var errorMessageHidden = true
+  @objc dynamic private(set) var subscribedSuccessfully = false
 
   private let feedInfoExtractor: RSSFeedExtracting
   private let feedInfoSaver: FeedInfoSaving
@@ -51,7 +52,7 @@ class SubscribeToFeedViewModel {
   private func handleFailedExtraction(_ error: RSSFeedExtractingError) {
     switch error {
     case .noFeed:
-      errorMessage = "У сайта нет RSS потока"
+      errorMessage = "У сайта нет RSS-потока"
     }
 
     errorMessageHidden = false

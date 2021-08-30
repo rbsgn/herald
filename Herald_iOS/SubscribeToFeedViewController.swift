@@ -11,15 +11,25 @@ final class SubscribeToFeedViewController: UIViewController {
 
   weak var delegate: SubscribeToFeedViewControllerDelegate?
 
-  private let feedExtractor: RSSFeedExtracting
+  private let viewModel: SubscribeToFeedViewModel
 
   private weak var textField: UITextField?
   private weak var subscribeButton: UIControl?
   private weak var errorLabel: UILabel?
 
-  init(feedExtractor: RSSFeedExtracting) {
-    self.feedExtractor = feedExtractor
+  private var isSubscribeEnabledToken: NSKeyValueObservation?
+  private var isErrorMessageHiddenToken: NSKeyValueObservation?
+  private var successfullySubscribedToken: NSKeyValueObservation?
+
+  init(viewModel: SubscribeToFeedViewModel) {
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
+  }
+
+  deinit {
+    isSubscribeEnabledToken?.invalidate()
+    isErrorMessageHiddenToken?.invalidate()
+    successfullySubscribedToken?.invalidate()
   }
 
   required init?(coder: NSCoder) {
@@ -59,7 +69,37 @@ final class SubscribeToFeedViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    updateSubscribeStatus(userInput: textField?.text)
+    bindUIToViewModel()
+  }
+
+  private func bindUIToViewModel() {
+    isSubscribeEnabledToken =
+      viewModel.observe(
+        \.canSubscribe,
+        options: [.initial, .new],
+        changeHandler: { [unowned self] observedViewModel, change in
+          self.subscribeButton?.isEnabled = observedViewModel.canSubscribe
+        }
+      )
+
+    isErrorMessageHiddenToken =
+      viewModel.observe(
+        \.errorMessageHidden,
+        options: [.initial, .new],
+        changeHandler: { [unowned self] observedViewModel, change in
+          self.errorLabel?.text = observedViewModel.errorMessage
+          self.errorLabel?.isHidden = observedViewModel.errorMessageHidden
+        }
+      )
+
+    successfullySubscribedToken =
+      viewModel.observe(
+        \.errorMessageHidden,
+        options: [.initial, .new],
+        changeHandler: { [unowned self] observedViewModel, change in
+          self.delegate?.subscribeFeedViewControllerDidFinish(self)
+        }
+      )
   }
 
   override func viewDidLayoutSubviews() {
@@ -68,56 +108,15 @@ final class SubscribeToFeedViewController: UIViewController {
   }
 
   @objc private func textFieldDidChange(_ sender: UITextField) {
-    updateSubscribeStatus(userInput: sender.text)
-  }
-
-  private func updateSubscribeStatus(userInput: String?) {
-    if let userInput = userInput {
-      let possiblyURL = URL(string: userInput)
-      subscribeButton?.isEnabled = possiblyURL != nil
-    }
-    else {
-      subscribeButton?.isEnabled = false
-    }
+    viewModel.typeText(sender.text ?? "")
   }
 
   @objc private func subscribeButtonTapped(_ sender: UIButton) {
-    guard
-      let userInput = textField?.text,
-      let url = URL(string: userInput)
-    else {
-      return
-    }
-
-    feedExtractor.feeds(from: url) { [weak self] result in
-      self?.handleFeedExtractionResult(result)
-    }
-  }
-
-  private func handleFeedExtractionResult(
-    _ result: Result<FeedInfo, RSSFeedExtractingError>
-  ) {
-    switch result {
-    case .success(let feed):
-      handleExtractedFeed(feed)
-    case .failure(let error):
-      handleExtractionError(error)
-    }
+    viewModel.subscribe()
   }
 
   private func handleExtractedFeed(_ feed: FeedInfo) {
     delegate?.subscribeFeedViewControllerDidFinish(self)
-  }
-
-  private func handleExtractionError(_ error: RSSFeedExtractingError) {
-    let message: String
-    switch error {
-    case .noFeed:
-      message = "У сайта нет RSS-потока"
-    }
-    
-    errorLabel?.text = message
-    errorLabel?.isHidden = false
   }
 }
 
