@@ -2,7 +2,10 @@ import Foundation
 
 
 protocol RSSFeedURLExtractorDelegate: AnyObject {
-  func feedURLExtractorDidFinish(_ extractor: RSSFeedURLExtractor)
+  func feedURLExtractor(
+    _ extractor: RSSFeedURLExtractor,
+    didExtract urls: [URL]
+  )
   
   func feedURLExtractor(
     _ extractor: RSSFeedURLExtractor,

@@ -16,6 +16,7 @@
 		AA5B2ECF26DCAFCA00F499E8 /* SubscriptionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */; };
 		AA5B2ED126DCB06100F499E8 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */; };
 		AA5B2ED326DCB11800F499E8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */; };
+		AA5B2EDB26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EDA26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
@@ -42,6 +43,9 @@
 		AA5B2ECE26DCAFCA00F499E8 /* SubscriptionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsPage.swift; sourceTree = "<group>"; };
 		AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		AA5B2ED826DCBACA00F499E8 /* Herald_iOS_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Herald_iOS_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA5B2EDA26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedURLExtractorTests.swift; sourceTree = "<group>"; };
+		AA5B2EDC26DCBACA00F499E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA5B2ED526DCBACA00F499E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AADD533626DA848800CFBF49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,11 +99,21 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		AA5B2ED926DCBACA00F499E8 /* Herald_iOS_UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2EDA26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift */,
+				AA5B2EDC26DCBACA00F499E8 /* Info.plist */,
+			);
+			path = Herald_iOS_UnitTests;
+			sourceTree = "<group>";
+		};
 		AADD532E26DA841400CFBF49 = {
 			isa = PBXGroup;
 			children = (
 				AADD533B26DA848800CFBF49 /* Herald_iOS */,
 				AADD535326DA874500CFBF49 /* Herald_iOS_UITests */,
+				AA5B2ED926DCBACA00F499E8 /* Herald_iOS_UnitTests */,
 				AADD533A26DA848800CFBF49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +123,7 @@
 			children = (
 				AADD533926DA848800CFBF49 /* Herald_iOS.app */,
 				AADD535226DA874500CFBF49 /* Herald_iOS_UITests.xctest */,
+				AA5B2ED826DCBACA00F499E8 /* Herald_iOS_UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +159,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA5B2ED726DCBACA00F499E8 /* Herald_iOS_UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA5B2EDD26DCBACA00F499E8 /* Build configuration list for PBXNativeTarget "Herald_iOS_UnitTests" */;
+			buildPhases = (
+				AA5B2ED426DCBACA00F499E8 /* Sources */,
+				AA5B2ED526DCBACA00F499E8 /* Frameworks */,
+				AA5B2ED626DCBACA00F499E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Herald_iOS_UnitTests;
+			productName = Herald_iOS_UnitTests;
+			productReference = AA5B2ED826DCBACA00F499E8 /* Herald_iOS_UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AADD533826DA848800CFBF49 /* Herald_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AADD534B26DA848800CFBF49 /* Build configuration list for PBXNativeTarget "Herald_iOS" */;
@@ -181,6 +220,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					AA5B2ED726DCBACA00F499E8 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					AADD533826DA848800CFBF49 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -205,11 +247,19 @@
 			targets = (
 				AADD533826DA848800CFBF49 /* Herald_iOS */,
 				AADD535126DA874500CFBF49 /* Herald_iOS_UITests */,
+				AA5B2ED726DCBACA00F499E8 /* Herald_iOS_UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA5B2ED626DCBACA00F499E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AADD533726DA848800CFBF49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +279,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA5B2ED426DCBACA00F499E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA5B2EDB26DCBACA00F499E8 /* RSSFeedURLExtractorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AADD533526DA848800CFBF49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +335,146 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AA5B2EDE26DCBACA00F499E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = KBN7SCQ9W7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Herald_iOS_UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.roman-busygin.Herald-iOS-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA5B2EDF26DCBACA00F499E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = KBN7SCQ9W7;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Herald_iOS_UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.roman-busygin.Herald-iOS-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AADD533326DA841400CFBF49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -576,6 +774,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA5B2EDD26DCBACA00F499E8 /* Build configuration list for PBXNativeTarget "Herald_iOS_UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5B2EDE26DCBACA00F499E8 /* Debug */,
+				AA5B2EDF26DCBACA00F499E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AADD533226DA841400CFBF49 /* Build configuration list for PBXProject "Herald" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -100,7 +100,10 @@ final class SubscribeToFeedViewController: UIViewController {
 
 extension SubscribeToFeedViewController: RSSFeedURLExtractorDelegate {
 
-  func feedURLExtractorDidFinish(_ extractor: RSSFeedURLExtractor) {
+  func feedURLExtractor(
+    _ extractor: RSSFeedURLExtractor,
+    didExtract urls: [URL]
+  ) {
     delegate?.subscribeFeedViewControllerDidFinish(self)
   }
 
