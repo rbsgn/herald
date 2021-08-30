@@ -10,6 +10,8 @@ class Herald_iOS_UITests: XCTestCase {
     continueAfterFailure = false
 
     app = XCUIApplication()
+    app.launchArguments = ["Hello from XCTest"]
+    app.launchEnvironment = ["Environment": "XCTest"]
     app.launch()
 
     subscribeFeedPage = SubscribeFeedPage(app: app)

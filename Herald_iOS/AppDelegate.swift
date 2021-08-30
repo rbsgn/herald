@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    logProcessLaunchContext()
+
     let window = UIWindow(frame: UIScreen.main.bounds)
 
     let viewControllerFactory = ViewControllerFactory()
@@ -26,5 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
+  private func logProcessLaunchContext() {
+    let currentProcess = ProcessInfo.processInfo
+    print(">>> Process arguments: \(currentProcess.arguments)")
+    print(">>> Process environment: \(currentProcess.environment)")
+  }
 }
 
