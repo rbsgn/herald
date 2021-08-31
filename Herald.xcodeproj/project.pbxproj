@@ -151,6 +151,67 @@
 			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
+		AA5B2F0326DE494400F499E8 /* SubscribeToFeed */ = {
+			isa = PBXGroup;
+			children = (
+				AADD535C26DA95FC00CFBF49 /* SubscribeToFeedViewController.swift */,
+				AA5B2EF726DD980900F499E8 /* SubscribeToFeedViewModel.swift */,
+			);
+			path = SubscribeToFeed;
+			sourceTree = "<group>";
+		};
+		AA5B2F0426DE495100F499E8 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		AA5B2F0526DE496700F499E8 /* TestingSupport */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */,
+				AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */,
+				AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */,
+				AA5B2EE626DD133200F499E8 /* Process+AppProcessArguments.swift */,
+				AA5B2EE826DD42F800F499E8 /* AppConfig.swift */,
+				AA5B2EFE26DDFC7000F499E8 /* FeedInfoTestStubs.swift */,
+				AA5B2EEC26DD468E00F499E8 /* FakeRSSFeedExtractor.swift */,
+			);
+			path = TestingSupport;
+			sourceTree = "<group>";
+		};
+		AA5B2F0626DE49A900F499E8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2F0326DE494400F499E8 /* SubscribeToFeed */,
+				AA5B2F0426DE495100F499E8 /* Subscriptions */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		AA5B2F0726DE49D000F499E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AADD534526DA848800CFBF49 /* Assets.xcassets */,
+				AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */,
+				AADD534A26DA848800CFBF49 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA5B2F0826DE49E000F499E8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AA5B2EBF26DB80B400F499E8 /* RSSFeedURLExtractor.swift */,
+				AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */,
+				AA5B2EF426DD97E800F499E8 /* FeedInfoSaving.swift */,
+				AA5B2EFA26DDFA0500F499E8 /* FeedInfo.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		AADD532E26DA841400CFBF49 = {
 			isa = PBXGroup;
 			children = (
@@ -176,23 +237,10 @@
 			children = (
 				AADD533C26DA848800CFBF49 /* AppDelegate.swift */,
 				AA5B2ED226DCB11800F499E8 /* ViewControllerFactory.swift */,
-				AADD535C26DA95FC00CFBF49 /* SubscribeToFeedViewController.swift */,
-				AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */,
-				AA5B2EBF26DB80B400F499E8 /* RSSFeedURLExtractor.swift */,
-				AADD534526DA848800CFBF49 /* Assets.xcassets */,
-				AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */,
-				AADD534A26DA848800CFBF49 /* Info.plist */,
-				AA5B2EC426DBE74B00F499E8 /* AccessibilityIdentifiers.swift */,
-				AA5B2EC726DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift */,
-				AA5B2EE126DD105A00F499E8 /* AppProcessArguments.swift */,
-				AA5B2EE626DD133200F499E8 /* Process+AppProcessArguments.swift */,
-				AA5B2EE826DD42F800F499E8 /* AppConfig.swift */,
-				AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */,
-				AA5B2EEC26DD468E00F499E8 /* FakeRSSFeedExtractor.swift */,
-				AA5B2EF426DD97E800F499E8 /* FeedInfoSaving.swift */,
-				AA5B2EF726DD980900F499E8 /* SubscribeToFeedViewModel.swift */,
-				AA5B2EFA26DDFA0500F499E8 /* FeedInfo.swift */,
-				AA5B2EFE26DDFC7000F499E8 /* FeedInfoTestStubs.swift */,
+				AA5B2F0626DE49A900F499E8 /* Screens */,
+				AA5B2F0826DE49E000F499E8 /* Domain */,
+				AA5B2F0526DE496700F499E8 /* TestingSupport */,
+				AA5B2F0726DE49D000F499E8 /* Resources */,
 			);
 			path = Herald_iOS;
 			sourceTree = "<group>";
