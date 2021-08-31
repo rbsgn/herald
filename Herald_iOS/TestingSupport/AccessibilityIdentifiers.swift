@@ -5,4 +5,6 @@ enum AccessibilityIdentifier: String {
   case subscriptionErrorLabel
 
   case subscriptionsPage
+  case subscriptionTitle
+  case subscriptionSubtitle
 }

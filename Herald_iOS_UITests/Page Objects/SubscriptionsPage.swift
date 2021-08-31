@@ -1,5 +1,10 @@
 import XCTest
 
+struct SubscriptionElement: Equatable {
+  let title: String
+  let subtitle: String
+}
+
 struct SubscriptionsPage {
   private let app: XCUIApplication
 
@@ -7,22 +12,21 @@ struct SubscriptionsPage {
     self.app = app
   }
 
-  func containsSubscription(title: String, subtitle: String) -> Bool {
-    let givenSubscriptionPredicate =
-      NSPredicate { evaluated, _ in
-        let element = evaluated as! XCUIElement
+  func subscriptions() -> [SubscriptionElement] {
+    let cells = app.tables.firstMatch.cells
+    var result: [SubscriptionElement] = []
 
-        return
-          element.staticTexts[title].exists &&
-          element.staticTexts[subtitle].exists
-      }
+    for i in 0 ..< cells.count {
+      let element = cells.element(boundBy: i)
+      let subscription =
+        SubscriptionElement(
+          title: element.staticTexts[.subscriptionTitle].label,
+          subtitle: element.staticTexts[.subscriptionSubtitle].label
+        )
 
-    return
-      app
-        .tables
-        .firstMatch
-        .cells
-        .element(matching: givenSubscriptionPredicate)
-        .exists
+      result.append(subscription)
+    }
+
+    return result
   }
 }

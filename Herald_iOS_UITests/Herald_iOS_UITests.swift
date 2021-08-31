@@ -10,7 +10,7 @@ class Herald_iOS_UITests: XCTestCase {
     continueAfterFailure = false
 
     app = XCUIApplication()
-    app.setProcessArguments([.fakeRSSParsing])
+    app.setProcessArguments([.fakeRSSParsing, .removeSubscriptions])
     app.launch()
 
     subscribeFeedPage = SubscribeFeedPage(app: app)
@@ -35,15 +35,16 @@ class Herald_iOS_UITests: XCTestCase {
     subscribeFeedPage.typeURL(df4.absoluteString)
     subscribeFeedPage.subscribe()
 
-    XCTAssertFalse(subscribeFeedPage.exists)
+    subscribeFeedPage.waitUntilHidden(in: self)
 
     let subscriptionsPage = SubscriptionsPage(app: app)
-    let containsAddedSubscription =
-      subscriptionsPage.containsSubscription(
+
+    let expectedSubscription =
+      SubscriptionElement(
         title: df4Feed.title,
         subtitle: df4Feed.url.absoluteString
       )
 
-    XCTAssertTrue(containsAddedSubscription)
+    XCTAssertEqual(subscriptionsPage.subscriptions(), [expectedSubscription])
   }
 }

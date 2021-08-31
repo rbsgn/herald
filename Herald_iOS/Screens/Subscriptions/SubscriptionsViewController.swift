@@ -60,6 +60,8 @@ extension SubscriptionsViewController: UITableViewDataSource {
     var cell = tableView.dequeueReusableCell(withIdentifier: "subscription")
     if cell == nil {
       cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subscription")
+      cell?.textLabel?.accessibilityId = .subscriptionTitle
+      cell?.detailTextLabel?.accessibilityId = .subscriptionSubtitle
     }
 
     let subscription = viewModel.subscriptions[indexPath.row]

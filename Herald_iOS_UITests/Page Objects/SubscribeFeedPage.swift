@@ -33,5 +33,13 @@ struct SubscribeFeedPage {
   func errorMessagePresent(_ message: String) -> Bool {
     view.staticTexts[message].exists
   }
+
+  func waitUntilHidden(in testCase: XCTestCase) {
+    let doesNotExist = NSPredicate(format: "exists == NO")
+    let expectation =
+      testCase.expectation(for: doesNotExist, evaluatedWith: view, handler: nil)
+
+    testCase.wait(for: [expectation], timeout: 2.0)
+  }
 }
 

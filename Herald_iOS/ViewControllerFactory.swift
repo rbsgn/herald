@@ -15,6 +15,10 @@ final class ViewControllerFactory {
         .appendingPathComponent("subscriptions.json")
 
     self.subscriptionsStorage = CodableSubscriptionsStorage(path: url)
+
+    if config.removeSubscriptions {
+      self.subscriptionsStorage.remove()
+    }
   }
 
   func makeSubscribeToFeed(
