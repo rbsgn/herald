@@ -13,6 +13,10 @@ struct SubscribeFeedPage {
   private var subscribeButton: XCUIElement { view.buttons[.subscribeButton] }
   private var feedAddressTextField: XCUIElement { view.textFields[.feedAddressTextField] }
 
+  var exists: Bool {
+    view.exists
+  }
+
   init(app: XCUIApplication) {
     self.view = app.otherElements[.subscribeFeedScreen]
   }

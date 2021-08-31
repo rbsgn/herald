@@ -50,3 +50,23 @@ class SpyingFeedInfoExtractor: RSSFeedExtracting {
     self.website = website
   }
 }
+
+class FakeFeedInfoExtractor: RSSFeedExtracting {
+  private let stubs: [URL: FeedInfo]
+
+  init(stubs: [URL: FeedInfo]) {
+    self.stubs = stubs
+  }
+
+  func feeds(
+    from website: URL,
+    completion: @escaping (Result<FeedInfo, RSSFeedExtractingError>) -> Void
+  ) {
+    if let stub = stubs[website] {
+      completion(.success(stub))
+    }
+    else {
+      completion(.failure(.noFeed))
+    }
+  }
+}

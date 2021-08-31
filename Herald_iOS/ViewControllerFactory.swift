@@ -30,7 +30,7 @@ final class ViewControllerFactory {
   func makeRSSFeedExtracor() -> RSSFeedExtracting {
     return
       config.fakeRSSParsing ?
-        FakeRSSFeedExtractor() :
+        FakeFeedInfoExtractor(stubs: [df4: df4Feed]) :
         RSSFeedExtractor()
   }
 

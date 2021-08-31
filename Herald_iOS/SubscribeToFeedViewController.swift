@@ -94,7 +94,7 @@ final class SubscribeToFeedViewController: UIViewController {
 
     successfullySubscribedToken =
       viewModel.observe(
-        \.errorMessageHidden,
+        \.subscribedSuccessfully,
         options: [.initial, .new],
         changeHandler: { [unowned self] observedViewModel, change in
           if observedViewModel.subscribedSuccessfully {
