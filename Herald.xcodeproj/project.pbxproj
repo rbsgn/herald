@@ -37,6 +37,9 @@
 		AA5B2EFF26DDFC7000F499E8 /* FeedInfoTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EFE26DDFC7000F499E8 /* FeedInfoTestStubs.swift */; };
 		AA5B2F0126DDFCE200F499E8 /* FeedInfoTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EFE26DDFC7000F499E8 /* FeedInfoTestStubs.swift */; };
 		AA5B2F0226DE0D1100F499E8 /* FeedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2EFA26DDFA0500F499E8 /* FeedInfo.swift */; };
+		AA5B2F0A26DE552800F499E8 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2F0926DE552800F499E8 /* SubscriptionsViewModel.swift */; };
+		AA5B2F0C26DE583A00F499E8 /* SubscriptionsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2F0B26DE583A00F499E8 /* SubscriptionsStorage.swift */; };
+		AA5B2F0E26DE586000F499E8 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2F0D26DE586000F499E8 /* Subscription.swift */; };
 		AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD533C26DA848800CFBF49 /* AppDelegate.swift */; };
 		AADD534626DA848800CFBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADD534526DA848800CFBF49 /* Assets.xcassets */; };
 		AADD534926DA848800CFBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADD534726DA848800CFBF49 /* LaunchScreen.storyboard */; };
@@ -78,6 +81,9 @@
 		AA5B2EF726DD980900F499E8 /* SubscribeToFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToFeedViewModel.swift; sourceTree = "<group>"; };
 		AA5B2EFA26DDFA0500F499E8 /* FeedInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInfo.swift; sourceTree = "<group>"; };
 		AA5B2EFE26DDFC7000F499E8 /* FeedInfoTestStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInfoTestStubs.swift; sourceTree = "<group>"; };
+		AA5B2F0926DE552800F499E8 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
+		AA5B2F0B26DE583A00F499E8 /* SubscriptionsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsStorage.swift; sourceTree = "<group>"; };
+		AA5B2F0D26DE586000F499E8 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		AADD533926DA848800CFBF49 /* Herald_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADD533C26DA848800CFBF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADD534526DA848800CFBF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				AA5B2ED026DCB06100F499E8 /* SubscriptionsViewController.swift */,
+				AA5B2F0926DE552800F499E8 /* SubscriptionsViewModel.swift */,
+				AA5B2F0B26DE583A00F499E8 /* SubscriptionsStorage.swift */,
 			);
 			path = Subscriptions;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 				AA5B2EEA26DD441F00F499E8 /* RSSFeedExtracting.swift */,
 				AA5B2EF426DD97E800F499E8 /* FeedInfoSaving.swift */,
 				AA5B2EFA26DDFA0500F499E8 /* FeedInfo.swift */,
+				AA5B2F0D26DE586000F499E8 /* Subscription.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				AADD535D26DA95FC00CFBF49 /* SubscribeToFeedViewController.swift in Sources */,
 				AA5B2EEB26DD441F00F499E8 /* RSSFeedExtracting.swift in Sources */,
 				AA5B2EFB26DDFA0500F499E8 /* FeedInfo.swift in Sources */,
+				AA5B2F0C26DE583A00F499E8 /* SubscriptionsStorage.swift in Sources */,
 				AA5B2EF526DD97E800F499E8 /* FeedInfoSaving.swift in Sources */,
 				AA5B2EFF26DDFC7000F499E8 /* FeedInfoTestStubs.swift in Sources */,
 				AA5B2EE926DD42F800F499E8 /* AppConfig.swift in Sources */,
@@ -410,8 +420,10 @@
 				AA5B2EC826DBE9AC00F499E8 /* UIAccessibilityIdentification+AccessibilityIdentifier.swift in Sources */,
 				AA5B2EF826DD980900F499E8 /* SubscribeToFeedViewModel.swift in Sources */,
 				AA5B2EC026DB80B400F499E8 /* RSSFeedURLExtractor.swift in Sources */,
+				AA5B2F0E26DE586000F499E8 /* Subscription.swift in Sources */,
 				AADD533D26DA848800CFBF49 /* AppDelegate.swift in Sources */,
 				AA5B2EC526DBE74B00F499E8 /* AccessibilityIdentifiers.swift in Sources */,
+				AA5B2F0A26DE552800F499E8 /* SubscriptionsViewModel.swift in Sources */,
 				AA5B2EE726DD133200F499E8 /* Process+AppProcessArguments.swift in Sources */,
 				AA5B2ED126DCB06100F499E8 /* SubscriptionsViewController.swift in Sources */,
 			);
@@ -662,7 +674,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Herald_iOS/Info.plist;
+				INFOPLIST_FILE = Herald_iOS/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -730,7 +742,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Herald_iOS/Info.plist;
+				INFOPLIST_FILE = Herald_iOS/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

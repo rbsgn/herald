@@ -31,10 +31,19 @@ class Herald_iOS_UITests: XCTestCase {
     XCTAssertTrue(subscribeFeedPage.errorMessagePresent("У сайта нет RSS-потока"))
   }
 
-  func test_AfterImport_ShowsSubscriptionsPage() {
+  func test_AfterImport_ShowsSubscriptionsPage_WithNewlyAddedSubscription() {
     subscribeFeedPage.typeURL(df4.absoluteString)
     subscribeFeedPage.subscribe()
 
     XCTAssertFalse(subscribeFeedPage.exists)
+
+    let subscriptionsPage = SubscriptionsPage(app: app)
+    let containsAddedSubscription =
+      subscriptionsPage.containsSubscription(
+        title: df4Feed.title,
+        subtitle: df4Feed.url.absoluteString
+      )
+
+    XCTAssertTrue(containsAddedSubscription)
   }
 }

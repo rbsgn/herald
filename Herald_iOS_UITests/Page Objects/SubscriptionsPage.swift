@@ -1,6 +1,5 @@
 import XCTest
 
-
 struct SubscriptionsPage {
   private let app: XCUIApplication
 
@@ -8,7 +7,22 @@ struct SubscriptionsPage {
     self.app = app
   }
 
-  var exists: Bool {
-    app.otherElements[.subscriptionsPage].exists
+  func containsSubscription(title: String, subtitle: String) -> Bool {
+    let givenSubscriptionPredicate =
+      NSPredicate { evaluated, _ in
+        let element = evaluated as! XCUIElement
+
+        return
+          element.staticTexts[title].exists &&
+          element.staticTexts[subtitle].exists
+      }
+
+    return
+      app
+        .tables
+        .firstMatch
+        .cells
+        .element(matching: givenSubscriptionPredicate)
+        .exists
   }
 }

@@ -3,9 +3,18 @@ import UIKit
 
 final class ViewControllerFactory {
   private let config: AppConfig
+  private let subscriptionsStorage: SubscriptionsStorage
 
   init(config: AppConfig) {
     self.config = config
+
+    let url =
+      FileManager.default
+        .urls(for: .documentDirectory, in: .userDomainMask)
+        .first!
+        .appendingPathComponent("subscriptions.json")
+
+    self.subscriptionsStorage = CodableSubscriptionsStorage(path: url)
   }
 
   func makeSubscribeToFeed(
@@ -24,7 +33,8 @@ final class ViewControllerFactory {
   }
 
   func makeSubscriptions() -> UIViewController {
-    SubscriptionsViewController()
+    let viewModel = SubscriptionsViewModel(storage: subscriptionsStorage)
+    return SubscriptionsViewController(viewModel: viewModel)
   }
 
   func makeRSSFeedExtracor() -> RSSFeedExtracting {
@@ -35,6 +45,6 @@ final class ViewControllerFactory {
   }
 
   private func makeRSSInfoSaver() -> FeedInfoSaving {
-    FeedInfoSaver()
+    FeedInfoSaver(storage: subscriptionsStorage)
   }
 }
